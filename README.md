@@ -21,3 +21,13 @@
 # 6: create postcss.config.cjs <!-- for linux(touch postcss.config.cjs) should create it, else open your file and manually create it -->
 
 # 7: npm run dev <!-- this should start your webserver, and you can view it in the localhost url displayed in the terminal -->
+
+# TO RUN THIS TEMPLATE:
+
+# 1: git clone https://github.com/OkarFabianTheWise/solana-ts-tailwind-template
+
+# 2: cd solana-ts-tailwind-template
+
+# 3: npm install
+
+# 4: npm run dev
