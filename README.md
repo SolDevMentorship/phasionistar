@@ -22,6 +22,24 @@
 
 # 7: npm run dev <!-- this should start your webserver, and you can view it in the localhost url displayed in the terminal -->
 
+# 8: Installed the webpack dependecies below and fixed babel and webpack config
+
+<!--
+
+npm install webpack webpack-cli webpack-dev-server --save-dev
+
+npm install babel-loader style-loader css-loader html-webpack-plugin --save-dev
+
+npm install @pmmmwh/react-refresh-webpack-plugin react-refresh --save-dev
+
+npm install crypto-browserify stream-browserify stream-http https-browserify browserify-zlib url vm-browserify --save-dev
+
+npm install crypto-browserify stream-browserify stream-http https-browserify browserify-zlib url vm-browserify --save-dev
+
+npm install @babel/core @babel/preset-env @babel/preset-react @babel/preset-typescript --save-dev
+
+ -->
+
 # TO RUN THIS TEMPLATE:
 
 # 1: git clone https://github.com/OkarFabianTheWise/solana-ts-tailwind-template
