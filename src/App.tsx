@@ -1,12 +1,24 @@
-import React from "react"
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Layout from './layouts/Layout';
+import Home from './pages/Home';
+import About from './pages/About';
+import Contact from './pages/Contact';
+import Services from './pages/Services';
 
-const App: React.FC = () => {
+
+const App = () => {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-black via-white to-black flex flex-col items-center justify-between"> {/*back ground setup */}
-      <h1 className="text-3xl text-yellow">SOLANA + TYPESCRIPT + REACT + TAILWINDCSS SETUP</h1>
-      <a href="https://github.com/OkarFabianTheWise/solana-ts-tailwind-template" className="text-2xl">By: OrkarfabianThewise</a>
-    </div>
-  )
-}
+    <Router>
+      <Layout>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/services" element={<Services />} />
+        </Routes>
+      </Layout>
+    </Router>
+  );
+};
 
-export default App
+export default App;
