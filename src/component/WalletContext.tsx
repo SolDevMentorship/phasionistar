@@ -26,7 +26,7 @@ export const CustomWalletMultiButton = () => {
   const wallet = useSolanaWallet();
 
   // Conditionally render button text based on connection state
-  const buttonText = wallet.connected ? null : "CONNECT TO SOLANA";
+  const buttonText = wallet.connected ? null : "Get Started";
 
   return (
     <WalletMultiButton style={connectButtonStyles}>
@@ -37,14 +37,13 @@ export const CustomWalletMultiButton = () => {
 
 // Button styles
 const connectButtonStyles: React.CSSProperties = {
-  backgroundColor: "#832c2c", // Bootstrap 'primary' color
-  color: "#fff",
-  padding: "0.5rem 1rem",
-  border: "2px solid antiquewhite",
-  borderRadius: "5px",
+  padding: "0.75rem 1.5rem",       // px-6 py-3
+  color: "#ffffff",                // text-white
+  backgroundColor: "#ca8a04",      // bg-yellow-600
+  borderRadius: "0.5rem",          // rounded-lg (8px)
   fontSize: "1rem",
   cursor: "pointer",
-  marginLeft: "1rem",
+  transition: "background-color 0.2s ease-in-out", // mimic hover effect
 };
 
 const WalletContextProvider: React.FC<WalletContextProviderProps> = ({

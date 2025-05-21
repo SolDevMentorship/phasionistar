@@ -1,6 +1,47 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { CustomWalletMultiButton } from '../component/WalletContext';
+import { useConnection, useWallet } from '@solana/wallet-adapter-react';
+import { AnchorProvider, Program } from '@project-serum/anchor';
+import { connection } from 'next/server';
+import { idl, PROGRAM_ID } from '../component/program_config';
 
 const Home: React.FC = () => {
+  const wallet = useWallet();
+  const { connection } = useConnection();
+  const { publicKey, signTransaction, signAllTransactions, connected } = wallet;
+  const [program, setProgram] = React.useState<Program | null>(null);
+  // Set up program when wallet is connected
+  useEffect(() => {
+    if (!publicKey) return;
+
+    const provider = new AnchorProvider(
+      connection,
+      { publicKey, signTransaction, signAllTransactions } as any,
+      { commitment: "confirmed" }
+    );
+    const prog = new Program(idl, PROGRAM_ID, provider);
+    setProgram(prog);
+
+  }, [connection, publicKey, connected]);
+
+   // Function to call when "Join as Designer" is clicked
+  const handleJoinAsDesigner = async () => {
+    if (!program || !publicKey) {
+      alert("Connect your wallet first!");
+      return;
+    }
+    try {
+      // Example: call a registerDesigner instruction (replace with your actual instruction)
+      await program.methods.registerDesigner().accounts({
+        designer: publicKey,
+        // ...other required accounts
+      }).rpc();
+      alert("You have joined as a designer!");
+    } catch (err) {
+      console.error(err);
+      alert("Failed to join as designer.");
+    }
+  };
   return (
     <div className="bg-yellow-200 text-yellow-900">
       {/* Hero Section */}
@@ -10,9 +51,7 @@ const Home: React.FC = () => {
           AI measurements, secure payments, and trusted designers at your fingertips.
         </p>
         <div className="mt-6 space-x-4">
-          <button className="px-6 py-3 text-white bg-yellow-600 rounded-lg hover:bg-yellow-700">
-            Get Started
-          </button>
+         <CustomWalletMultiButton/>
           <button className="px-6 py-3 text-yellow-600 bg-white border border-yellow-600 rounded-lg hover:bg-yellow-700 hover:text-white">
             Join as Designer
           </button>

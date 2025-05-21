@@ -49,3 +49,4 @@ npm install @babel/core @babel/preset-env @babel/preset-react @babel/preset-type
 # 3: npm install
 
 # 4: npm run dev
+# phasionistarr

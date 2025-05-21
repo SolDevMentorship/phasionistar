@@ -10,6 +10,12 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@project-serum/anchor": "^0.26.0",
+    "@solana/wallet-adapter-base": "^0.9.23",
+    "@solana/wallet-adapter-react": "^0.15.35",
+    "@solana/wallet-adapter-react-ui": "^0.9.35",
+    "@solana/wallet-adapter-wallets": "^0.19.32",
+    "@solana/web3.js": "^1.98.2",
     "next": "^15.3.1",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
@@ -23,6 +29,7 @@
     "@eslint/js": "^9.11.1",
     "@pmmmwh/react-refresh-webpack-plugin": "^0.5.15",
     "@types/next": "^8.0.7",
+    "@types/node": "^22.15.19",
     "@types/react": "^18.3.20",
     "@types/react-dom": "^18.3.7",
     "@vitejs/plugin-react": "^4.3.2",
